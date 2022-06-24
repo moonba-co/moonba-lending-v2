@@ -5,6 +5,7 @@ import {
   eEthereumNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
+  eMoonbaNetwork,
   iParamsPerNetwork,
 } from './helpers/types';
 
@@ -55,6 +56,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eXDaiNetwork.xdai]: 'https://rpc.xdaichain.com/',
   [eAvalancheNetwork.avalanche]: 'https://api.avax.network/ext/bc/C/rpc',
   [eAvalancheNetwork.fuji]: 'https://api.avax-test.network/ext/bc/C/rpc',
+  [eMoonbaNetwork.oneledger]: 'https://mainnet-rpc.oneledger.network',
+  [eMoonbaNetwork.frankenstein]: 'https://frankenstein-rpc.oneledger.network',
 };
 
 export const NETWORKS_DEFAULT_GAS: iParamsPerNetwork<number> = {
@@ -70,6 +73,8 @@ export const NETWORKS_DEFAULT_GAS: iParamsPerNetwork<number> = {
   [eXDaiNetwork.xdai]: 1 * GWEI,
   [eAvalancheNetwork.avalanche]: 225 * GWEI,
   [eAvalancheNetwork.fuji]: 85 * GWEI,
+  [eMoonbaNetwork.oneledger]: 1 * GWEI,
+  [eMoonbaNetwork.frankenstein]: 1 * GWEI,
 };
 
 export const BLOCK_TO_FORK: iParamsPerNetwork<number | undefined> = {
@@ -85,4 +90,6 @@ export const BLOCK_TO_FORK: iParamsPerNetwork<number | undefined> = {
   [eXDaiNetwork.xdai]: undefined,
   [eAvalancheNetwork.avalanche]: undefined,
   [eAvalancheNetwork.fuji]: undefined,
+  [eMoonbaNetwork.oneledger]: undefined,
+  [eMoonbaNetwork.frankenstein]: undefined,
 };

@@ -1,7 +1,7 @@
 {
-  "name": "@aave/protocol-v2",
+  "name": "@moonba/moonba-lending-v2",
   "version": "1.0.1",
-  "description": "Aave Protocol V2 smart contracts",
+  "description": "Moonba Protocol V2 smart contracts",
   "files": [
     "contracts",
     "artifacts"
@@ -18,6 +18,8 @@
     "hardhat:matic": "hardhat --network matic",
     "hardhat:fuji": "hardhat --network fuji",
     "hardhat:avalanche": "hardhat --network avalanche",
+    "hardhat:oneledger": "hardhat --network oneledger",
+    "hardhat:frankenstein": "hardhat --network frankenstein",
     "compile": "SKIP_LOAD=true hardhat compile",
     "console:fork": "FORK=main hardhat console",
     "test": "npm run compile && TS_NODE_TRANSPILE_ONLY=1 hardhat test ./test-suites/test-aave/*.spec.ts",
@@ -64,6 +66,8 @@
     "aave:main:full:migration": "npm run compile && npm run hardhat:main -- aave:mainnet --verify",
     "aave:main:full:initialize": "npm run compile && FORK=main full:initialize-tokens --pool Aave",
     "amm:main:full:migration": "npm run compile && npm run hardhat:main -- amm:mainnet --verify",
+    "moonba:frankenstein:full:migration": "npm run compile && npm run hardhat:frankenstein -- moonba:frankenstein",
+    "moonba:oneledger:full:migration": "npm run compile && npm run hardhat:oneledger -- moonba:oneledger",
     "prettier:check": "npx prettier -c 'tasks/**/*.ts' 'contracts/**/*.sol' 'helpers/**/*.ts'  'test-suites/test-aave/**/*.ts'",
     "prettier:write": "prettier --write 'tasks/**/*.ts' 'contracts/**/*.sol' 'helpers/**/*.ts'  'test-suites/test-aave/**/*.ts'",
     "ci:test": "npm run compile && npm run test",

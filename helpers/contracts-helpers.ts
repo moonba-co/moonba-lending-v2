@@ -19,6 +19,8 @@ import {
   iXDaiParamsPerNetwork,
   iAvalancheParamsPerNetwork,
   eAvalancheNetwork,
+  iMoonbaParamsPerNetwork,
+  eMoonbaNetwork,
 } from './types';
 import { MintableERC20 } from '../types/MintableERC20';
 import { Artifact } from 'hardhat/types';
@@ -150,6 +152,7 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
   const { matic, mumbai } = param as iPolygonParamsPerNetwork<T>;
   const { xdai } = param as iXDaiParamsPerNetwork<T>;
   const { avalanche, fuji } = param as iAvalancheParamsPerNetwork<T>;
+  const { oneledger, frankenstein } = param as iMoonbaParamsPerNetwork<T>;
   if (process.env.FORK) {
     return param[process.env.FORK as eNetwork] as T;
   }
@@ -179,6 +182,10 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
       return avalanche;
     case eAvalancheNetwork.fuji:
       return fuji;
+    case eMoonbaNetwork.oneledger:
+      return oneledger;
+    case eMoonbaNetwork.frankenstein:
+      return frankenstein;
   }
 };
 
@@ -193,7 +200,7 @@ export const getOptionalParamAddressPerNetwork = (
 };
 
 export const getParamPerPool = <T>(
-  { proto, amm, matic, avalanche }: iParamsPerPool<T>,
+  { proto, amm, matic, avalanche, moonba }: iParamsPerPool<T>,
   pool: AavePools
 ) => {
   switch (pool) {
@@ -205,6 +212,8 @@ export const getParamPerPool = <T>(
       return matic;
     case AavePools.avalanche:
       return avalanche;
+    case AavePools.moonba:
+      return moonba;
     default:
       return proto;
   }

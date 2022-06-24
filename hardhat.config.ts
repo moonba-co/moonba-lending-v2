@@ -9,6 +9,7 @@ import {
   eNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
+  eMoonbaNetwork,
 } from './helpers/types';
 import { BUIDLEREVM_CHAINID, COVERAGE_CHAINID } from './helpers/buidler-constants';
 import {
@@ -108,6 +109,8 @@ const buidlerConfig: HardhatUserConfig = {
     xdai: getCommonNetworkConfig(eXDaiNetwork.xdai, 100),
     avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
+    oneledger: getCommonNetworkConfig(eMoonbaNetwork.oneledger, 311752642),
+    frankenstein: getCommonNetworkConfig(eMoonbaNetwork.frankenstein, 4216137055),
     hardhat: {
       hardfork: 'berlin',
       blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
