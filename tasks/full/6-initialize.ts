@@ -8,7 +8,7 @@ import {
 } from '../../helpers/contracts-deployments';
 import { loadPoolConfig, ConfigNames, getTreasuryAddress } from '../../helpers/configuration';
 import { getWETHGateway } from '../../helpers/contracts-getters';
-import { eNetwork, ICommonConfiguration } from '../../helpers/types';
+import { eMoonbaNetwork, eNetwork, ICommonConfiguration } from '../../helpers/types';
 import { notFalsyOrZeroAddress, waitForTx } from '../../helpers/misc-utils';
 import { initReservesByHelper, configureReservesByHelper } from '../../helpers/init-helpers';
 import { exit } from 'process';
@@ -97,15 +97,16 @@ task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
           aaveProtocolDataProvider.address
         )
       );
-
       await deployWalletBalancerProvider(verify);
 
-      const uiPoolDataProvider = await deployUiPoolDataProviderV2(
-        chainlinkAggregatorProxy[localBRE.network.name],
-        chainlinkEthUsdAggregatorProxy[localBRE.network.name],
-        verify
-      );
-      console.log('UiPoolDataProvider deployed at:', uiPoolDataProvider.address);
+      if (network !== eMoonbaNetwork.oneledger && network !== eMoonbaNetwork.frankenstein) {
+        const uiPoolDataProvider = await deployUiPoolDataProviderV2(
+          chainlinkAggregatorProxy[localBRE.network.name],
+          chainlinkEthUsdAggregatorProxy[localBRE.network.name],
+          verify
+        );
+        console.log('UiPoolDataProvider deployed at:', uiPoolDataProvider.address);
+      }
 
       const lendingPoolAddress = await addressesProvider.getLendingPool();
 

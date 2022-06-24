@@ -152,8 +152,8 @@ export const getLendingRateOracles = (poolConfig: IBaseConfiguration) => {
 
 export const getQuoteCurrency = async (config: IBaseConfiguration) => {
   switch (config.OracleQuoteCurrency) {
-    case 'ETH':
-    case 'WETH':
+    case 'OLT':
+    case 'WOLT':
       return getWethAddress(config);
     case 'USD':
       return config.ProtocolGlobalParams.UsdAddress;

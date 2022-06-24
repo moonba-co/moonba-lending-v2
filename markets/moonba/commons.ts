@@ -62,40 +62,36 @@ export const CommonsConfig: ICommonConfiguration = {
     [eMoonbaNetwork.frankenstein]: undefined,
   },
   ProviderRegistry: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x61269588Be7c8e11900f2FfdDF371376D9a36880',
   },
   ProviderRegistryOwner: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x573f672bbe93f1b03d383A0cb502682467e7B71f',
   },
   LendingRateOracle: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x7Aa217D75480867370ADf96aa7593cc7aBf33bb4',
   },
   LendingPoolCollateralManager: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x0AB4F9BFD24aF56Be228267a36c9D831bc969268',
   },
   LendingPoolConfigurator: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x8dc420AF083798222C6c11536fD2d8B2c9Ca140E',
   },
   LendingPool: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0xc5AeA22bC079b7115973c6FdF046318b6F84FB73',
   },
   WethGateway: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
-  },
-  TokenDistributor: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x6f4E0e5F355066fB537E5378Caa9987A469939A4',
   },
   AaveOracle: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x87578919f8a49ec1beEF6CA66ea5Fdff9831a8dB',
   },
   FallbackOracle: {
     [eMoonbaNetwork.oneledger]: ZERO_ADDRESS,
@@ -116,23 +112,30 @@ export const CommonsConfig: ICommonConfiguration = {
     [eMoonbaNetwork.frankenstein]: {},
   },
   ReservesConfig: {},
-  ATokenDomainSeparator: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
-  },
   WETH: {
-    [eMoonbaNetwork.oneledger]: '',
-    [eMoonbaNetwork.frankenstein]: '',
+    [eMoonbaNetwork.oneledger]: '0x01586239B56ca158f1e31e4c6A07B3Ae59D623B5',
+    [eMoonbaNetwork.frankenstein]: '0x48e821241B953F110e295fD660Bd9bF988212B4e',
   },
+  // same as WETH as on Moonba WOLT = WETH, taking as native for calculations later
   WrappedNativeToken: {
     [eMoonbaNetwork.oneledger]: '0x01586239B56ca158f1e31e4c6A07B3Ae59D623B5',
     [eMoonbaNetwork.frankenstein]: '0x48e821241B953F110e295fD660Bd9bF988212B4e',
   },
   ReserveFactorTreasuryAddress: {
-    [eMoonbaNetwork.oneledger]: '',
+    [eMoonbaNetwork.oneledger]: 'TODO',
     [eMoonbaNetwork.frankenstein]: '0x633689E0850a78CBaE515cce2B387F3Bd9983779', // Self-controlled EOA for testing
   },
   IncentivesController: {
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: ZERO_ADDRESS, // NOTE: Do we need it?
+  },
+
+  // deprecated
+  TokenDistributor: {
+    [eMoonbaNetwork.oneledger]: '',
+    [eMoonbaNetwork.frankenstein]: '',
+  },
+  ATokenDomainSeparator: {
     [eMoonbaNetwork.oneledger]: '',
     [eMoonbaNetwork.frankenstein]: '',
   },
