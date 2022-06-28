@@ -55,6 +55,7 @@ import {
   UiPoolDataProviderV2V3Factory,
   UiIncentiveDataProviderV2V3,
   UiIncentiveDataProviderV2Factory,
+  MoonbaAggregatorFactory,
 } from '../types';
 import {
   withSaveAndVerify,
@@ -789,5 +790,16 @@ export const deployParaSwapLiquiditySwapAdapter = async (
     await new ParaSwapLiquiditySwapAdapterFactory(await getFirstSigner()).deploy(...args),
     eContractid.ParaSwapLiquiditySwapAdapter,
     args,
+    verify
+  );
+
+export const deployMoonbaAggregator = async (
+  args: [tEthereumAddress, tEthereumAddress],
+  verify?: boolean
+) =>
+  withSaveAndVerify(
+    await new MoonbaAggregatorFactory(await getFirstSigner()).deploy(...args),
+    eContractid.MoonbaAggregator,
+    [],
     verify
   );

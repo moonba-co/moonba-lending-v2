@@ -5,7 +5,6 @@ import {
   RAY,
   ZERO_ADDRESS,
   MOCK_CHAINLINK_AGGREGATORS_PRICES,
-  oneUsd,
 } from '../../helpers/constants';
 import { ICommonConfiguration, eMoonbaNetwork } from '../../helpers/types';
 
@@ -20,8 +19,8 @@ export const CommonsConfig: ICommonConfiguration = {
   VariableDebtTokenNamePrefix: 'Moonba OneLedger Market variable debt',
   SymbolPrefix: 'm',
   ProviderId: 0, // Overriden in index.ts
-  OracleQuoteCurrency: 'USD',
-  OracleQuoteUnit: oneUsd.toString(),
+  OracleQuoteCurrency: 'OLT',
+  OracleQuoteUnit: oneEther.toString(),
   ProtocolGlobalParams: {
     TokenDistributorPercentageBase: '10000',
     MockUsdPriceInWei: '5848466240000000',
@@ -61,37 +60,29 @@ export const CommonsConfig: ICommonConfiguration = {
     [eMoonbaNetwork.oneledger]: undefined,
     [eMoonbaNetwork.frankenstein]: undefined,
   },
-  ProviderRegistry: {
-    [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0x61269588Be7c8e11900f2FfdDF371376D9a36880',
-  },
   ProviderRegistryOwner: {
     [eMoonbaNetwork.oneledger]: 'TODO',
     [eMoonbaNetwork.frankenstein]: '0x573f672bbe93f1b03d383A0cb502682467e7B71f',
   },
-  LendingRateOracle: {
+  ProviderRegistry: {
     [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0x7Aa217D75480867370ADf96aa7593cc7aBf33bb4',
-  },
-  LendingPoolCollateralManager: {
-    [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0x0AB4F9BFD24aF56Be228267a36c9D831bc969268',
-  },
-  LendingPoolConfigurator: {
-    [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0x8dc420AF083798222C6c11536fD2d8B2c9Ca140E',
+    [eMoonbaNetwork.frankenstein]: '0x568cd900e81da264b878FF0e6C83998715045e91',
   },
   LendingPool: {
     [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0xc5AeA22bC079b7115973c6FdF046318b6F84FB73',
+    [eMoonbaNetwork.frankenstein]: '0xad3E70C1FE1c95412bCde0e9EcC4D478730E14f8',
   },
-  WethGateway: {
+  LendingPoolConfigurator: {
     [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0x6f4E0e5F355066fB537E5378Caa9987A469939A4',
+    [eMoonbaNetwork.frankenstein]: '0xb9d2A3Ec48898007E8099724C028a04Da823552f',
   },
   AaveOracle: {
     [eMoonbaNetwork.oneledger]: 'TODO',
-    [eMoonbaNetwork.frankenstein]: '0x87578919f8a49ec1beEF6CA66ea5Fdff9831a8dB',
+    [eMoonbaNetwork.frankenstein]: '0x3294415771c6A6955174C3b520d75d7A4A314609',
+  },
+  LendingRateOracle: {
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x1d506c9AF173c9410584E13310b58bd9f668e3b3',
   },
   FallbackOracle: {
     [eMoonbaNetwork.oneledger]: ZERO_ADDRESS,
@@ -99,24 +90,27 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   ChainlinkAggregator: {
     [eMoonbaNetwork.oneledger]: {
-      OLT: ZERO_ADDRESS,
-      USDT: ZERO_ADDRESS,
+      USD: ZERO_ADDRESS,
+      USDT: 'TODO',
     },
     [eMoonbaNetwork.frankenstein]: {
-      OLT: ZERO_ADDRESS,
-      USDT: ZERO_ADDRESS,
+      USD: ZERO_ADDRESS,
+      USDT: '0x9139d272A25586Ebca1d7B0b8160500E9d065648',
     },
   },
-  ReserveAssets: {
-    [eMoonbaNetwork.oneledger]: {},
-    [eMoonbaNetwork.frankenstein]: {},
+  WethGateway: {
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0x3320435Ccd4e25DCD0F7EEbd4aea3C04B32fF890',
   },
-  ReservesConfig: {},
+  LendingPoolCollateralManager: {
+    [eMoonbaNetwork.oneledger]: 'TODO',
+    [eMoonbaNetwork.frankenstein]: '0xDF35Cd8f597A756551c420256BA0e873a12dA08b',
+  },
+  // same as WETH as on Moonba WOLT = WETH, taking as native for calculations later
   WETH: {
     [eMoonbaNetwork.oneledger]: '0x01586239B56ca158f1e31e4c6A07B3Ae59D623B5',
     [eMoonbaNetwork.frankenstein]: '0x48e821241B953F110e295fD660Bd9bF988212B4e',
   },
-  // same as WETH as on Moonba WOLT = WETH, taking as native for calculations later
   WrappedNativeToken: {
     [eMoonbaNetwork.oneledger]: '0x01586239B56ca158f1e31e4c6A07B3Ae59D623B5',
     [eMoonbaNetwork.frankenstein]: '0x48e821241B953F110e295fD660Bd9bF988212B4e',
@@ -138,5 +132,12 @@ export const CommonsConfig: ICommonConfiguration = {
   ATokenDomainSeparator: {
     [eMoonbaNetwork.oneledger]: '',
     [eMoonbaNetwork.frankenstein]: '',
+  },
+
+  // override
+  ReservesConfig: {},
+  ReserveAssets: {
+    [eMoonbaNetwork.oneledger]: {},
+    [eMoonbaNetwork.frankenstein]: {},
   },
 };
